@@ -1,6 +1,6 @@
 import Config
 config :nostrum,
-  token: "MTE2NjQ3MTY5Mjk4MjQyMzU4Mg.G-FiwH.uGIikLp9-rYkRHFk162jz8vuuui6Fj0P24AbRw",
+  token: "<token>",
   gateway_intents: :all
 
 config :kata_bot, ecto_repos: [Kata.Repo]
