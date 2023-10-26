@@ -10,5 +10,6 @@ defmodule Kata.Repo.Migrations.CreateKata do
       add :input, :string
       add :expected_output, :string
     end
+    create unique_index(:kata, [:name])
   end
 end

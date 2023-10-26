@@ -1,6 +1,6 @@
 defmodule KataBot.Kata do
   use Ecto.Schema
-
+  
   schema "kata" do
     field :name, :string
     field :question, :string
@@ -13,6 +13,7 @@ defmodule KataBot.Kata do
   def changeset(kata, params \\ %{}) do
     kata
     |> Ecto.Changeset.cast(params, [:name, :question, :restrictions, :optional_restrictions, :input, :expected_output])
+    |> Ecto.Changeset.unique_constraint(:name)
     |> Ecto.Changeset.validate_required([:name, :question, :input, :expected_output])
   end
 end

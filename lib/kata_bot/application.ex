@@ -10,7 +10,8 @@ defmodule KataBot.Application do
     children = [
       # Starts a worker by calling: KataBot.Worker.start_link(arg)
       KataBot,
-      Kata.Repo
+      Kata.Repo,
+      KataBot.Commands
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
