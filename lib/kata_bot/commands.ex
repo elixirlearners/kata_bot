@@ -2,7 +2,7 @@ defmodule KataBot.Commands do
   @moduledoc """
   Used to process CRUD style commands for Kata. Most commands
   either take or return a `%KataBot.Kata{}` struct.  
- 
+
   ## Examples
 
     iex> kata = %KataBot.Kata{name: "my kata", question: "you good?",
@@ -67,12 +67,16 @@ defmodule KataBot.Commands do
   def get_kata(id) do
     GenServer.call(__MODULE__, {:get_kata, id})
   end
+
   @doc """
   Returns a list of all Kata ids
   """
   def get_ids do
-    query = Ecto.Query.from Kata,
-      select: [:id]
+    query =
+      Ecto.Query.from(Kata,
+        select: [:id]
+      )
+
     @repo.all(query)
   end
 
@@ -87,7 +91,7 @@ defmodule KataBot.Commands do
   @impl true
   def handle_call(:rand_kata, _from, state) do
     %{id: id} = get_ids() |> Enum.random()
-    kata = Kata |> @repo.get(id) 
+    kata = Kata |> @repo.get(id)
     {:reply, {:ok, kata}, state}
   end
 
