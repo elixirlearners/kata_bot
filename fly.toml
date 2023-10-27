@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for kata-bot on 2023-10-26T21:33:59-05:00
+# fly.toml app configuration file generated for kata-bot on 2023-10-27T11:48:11-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -10,6 +10,9 @@ primary_region = "dfw"
   builder = "heroku/buildpacks:20"
   buildpacks = ["https://cnb-shim.herokuapp.com/v1/hashnuke/elixir"]
 
+[deploy]
+  release_command = "/app/bin/kata_bot command Elixir.Release.Tasks migrate"
+
 [env]
   PORT = "8080"
 
@@ -18,5 +21,5 @@ primary_region = "dfw"
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
-  min_machines_running = 0
+  min_machines_running = 1
   processes = ["app"]
