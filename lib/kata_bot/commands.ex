@@ -11,6 +11,7 @@ defmodule KataBot.Commands do
     :ok
   """
   @repo Application.compile_env(:kata_bot, :repo)
+  require Ecto.Query
   alias KataBot.Kata
   use GenServer
 
@@ -49,14 +50,45 @@ defmodule KataBot.Commands do
     {
       :ok,
       [
-        %KataBot.Kata{id: nil, name: "Da Whey", question: "Do you know da whey my bruduh?", restrictions: nil, optional_restrictions: nil, input: "yes", expected_output: "yes"},
-        %KataBot.Kata{id: nil, name: "List Sort", question: "Sort this list.", restrictions: nil, optional_restrictions: nil, input: "[3,1,2]", expected_output: "[1,2,3]"},
-        %KataBot.Kata{id: nil, name: "Zero Division", question: "Can you devide by this?", restrictions: nil, optional_restrictions: nil, input: "0", expected_output: "no"}
+        %KataBot.Kata{id: 1, name: "Da Whey", question: "Do you know da whey my bruduh?", restrictions: nil, optional_restrictions: nil, input: "yes", expected_output: "yes"},
+        %KataBot.Kata{id: 2, name: "List Sort", question: "Sort this list.", restrictions: nil, optional_restrictions: nil, input: "[3,1,2]", expected_output: "[1,2,3]"},
+        %KataBot.Kata{id: 3, name: "Zero Division", question: "Can you devide by this?", restrictions: nil, optional_restrictions: nil, input: "0", expected_output: "no"}
       ]
     }
   """
   def list_kata() do
     GenServer.call(__MODULE__, :list)
+  end
+
+  def rand_kata() do
+    GenServer.call(__MODULE__, :rand_kata)
+  end
+
+  def get_kata(id) do
+    GenServer.call(__MODULE__, {:get_kata, id})
+  end
+  @doc """
+  Returns a list of all Kata ids
+  """
+  def get_ids do
+    query = Ecto.Query.from Kata,
+      select: [:id]
+    @repo.all(query)
+  end
+
+  @impl true
+  def handle_call({:get_kata, id}, _from, state) do
+    case Kata |> @repo.get(id) do
+      nil -> {:reply, {:error, "**Error:** ID:#{id} not found"}, state}
+      kata -> {:reply, {:ok, kata}, state}
+    end
+  end
+
+  @impl true
+  def handle_call(:rand_kata, _from, state) do
+    %{id: id} = get_ids() |> Enum.random()
+    kata = Kata |> @repo.get(id) 
+    {:reply, {:ok, kata}, state}
   end
 
   @impl true
