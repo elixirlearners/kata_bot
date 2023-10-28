@@ -1,7 +1,7 @@
 import Config
 
 config :nostrum,
-  token: System.get_env("DISCORD_TOKEN"),
+  token: System.get_env("KATA_DISCORD_TOKEN"),
   gateway_intents: :all
 
 config :kata_bot, ecto_repos: [Kata.Repo]
