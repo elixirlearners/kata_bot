@@ -1,0 +1,20 @@
+FROM elixir:latest
+
+ARG SET_MIX_ENV=prod
+ENV MIX_ENV $SET_MIX_ENV
+ARG KATA_DISCORD_TOKEN
+ENV KATA_DISCORD_TOKEN $KATA_DISCORD_TOKEN
+WORKDIR /app
+
+COPY . /app
+RUN rm -rf _build 
+
+RUN mix local.hex --force && \
+    mix local.rebar --force && \
+    mix deps.get
+
+# Compile the project
+RUN mix compile
+RUN mix release 
+
+CMD ["sh", "-c", "_build/${MIX_ENV}/rel/kata_bot/bin/kata_bot start"]
