@@ -7,6 +7,7 @@ config :nostrum,
 config :kata_bot, ecto_repos: [Kata.Repo]
 
 config :kata_bot, Kata.Repo,
+  socket_options: [:inet6],
   database: "kata_bot_repo",
   username: System.get_env("POSTGRES_USERNAME"),
   password: System.get_env("POSTGRES_PASSWORD"),

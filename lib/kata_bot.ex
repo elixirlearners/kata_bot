@@ -199,7 +199,7 @@ defmodule KataBot do
             "name" -> %KataBot.Kata{&2 | name: &1.value}
             "question" -> %KataBot.Kata{&2 | question: &1.value}
             "restrictions" -> %KataBot.Kata{&2 | restrictions: &1.value}
-            "optional_restritions" -> %KataBot.Kata{&2 | optional_restrictions: &1.value}
+            "optional_restrictions" -> %KataBot.Kata{&2 | optional_restrictions: &1.value}
             "input" -> %KataBot.Kata{&2 | input: &1.value}
             "expected_output" -> %KataBot.Kata{&2 | expected_output: &1.value}
           end)
