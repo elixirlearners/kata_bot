@@ -11,7 +11,8 @@ defmodule KataBot.Application do
       # Starts a worker by calling: KataBot.Worker.start_link(arg)
       KataBot,
       Kata.Repo,
-      KataBot.Commands
+      KataBot.Commands,
+      Questions
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

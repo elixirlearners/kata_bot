@@ -25,6 +25,7 @@ defmodule KataBot.MixProject do
       {:nostrum, github: "Kraigie/nostrum"},
       {:ecto_sql, "~> 3.10"},
       {:postgrex, "~> 0.17.3"},
+      {:toml, "~> 0.7.0"},
       {:pots, "~> 0.1.1"},
       # {:pots, path: "/home/cgasser/code/pots", only: :dev},
       # {:dep_from_hexpm, "~> 0.3.0"},

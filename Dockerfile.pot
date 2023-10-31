@@ -21,4 +21,4 @@ RUN mix compile
 RUN mix release 
 
 
-ENTRYPOINT /app/entrypoint.sh ${MIX_ENV}
+CMD ["sh", "-c", "/app/entrypoint.sh ${MIX_ENV}"]

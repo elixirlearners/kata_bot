@@ -1,0 +1,231 @@
+[[question]]
+name = "Last Element"
+question = """
+Write a function that returns the last element of a list.
+"""
+restrictions = """
+Do not use any built in functions or external libraries.
+"""
+optional_restrictions = """
+
+"""
+input = """
+[1,2,3,4,5,6,7,8,9,10]  
+"""
+expected_output = """
+10
+"""
+
+[[question]]
+name = "Last Two Elements"
+question = """
+Get the last two elements of a list.
+"""
+restrictions = """
+Do not use any built in functions or external libraries.
+"""
+optional_restrictions = """
+
+"""
+input = """
+[1,2,3,4,5,6,7,8,9,10]  
+"""
+expected_output = """
+[9, 10]
+"""
+
+[[question]]
+name = "N'th Element"
+question = """
+Find the `nth` element in a list.
+"""
+restrictions = """
+Do not use any built in functions or external libraries.
+"""
+optional_restrictions = """
+
+"""
+input = """
+n = 3
+[1,2,3,4,5,6,7,8,9,10]
+"""
+expected_output = """
+4
+"""
+
+[[question]]
+name = "List Length"
+question = """
+Find the number of elements in a list.
+"""
+restrictions = """
+Do not use any built in functions or external libraries.
+"""
+optional_restrictions = """
+
+"""
+input = """
+[1,2,3,4,5,6,7,8,9,10]
+"""
+expected_output = """
+10
+"""
+
+[[question]]
+name = "Palindrome"
+question = """
+Find out if a list is a palindrome.
+"""
+restrictions = """
+Do not use any external libraries or built
+in functions that may directly have this
+functionality.
+"""
+optional_restrictions = """
+"""
+input = """
+["b", "a", "t"]
+["r", "a", "c", "e", "c", "a", "r"]
+"""
+expected_output = """
+false
+true
+"""
+
+[[question]]
+name = "Flatten"
+question = """
+Flatten a nested list.
+"""
+restrictions = """
+Do not use any external libraries or built
+in functions that may directly have this
+functionality.
+"""
+optional_restrictions = """
+
+"""
+input = """
+["a", ["b", ["c", "d"], "e"], "f"]
+"""
+expected_output = """
+["a", "b", "c", "d", "e", "f"]
+"""
+
+[[question]]
+name = "No Consecutives"
+question = """
+Elimitate consecutive duplicates of list elements.
+"""
+restrictions = """
+Do not use any external libraries or built
+in functions that may directly have this
+functionality.
+"""
+optional_restrictions = """
+
+"""
+input = """
+["a", "a", "a", "a", "b", "c", "c", "a", "a", "d", "e", "e", "e", "e"]
+"""
+expected_output = """
+["a", "b", "c", "a", "d", "e"]
+"""
+
+[[question]]
+name = "Pack Consecutives"
+question = """
+Pack consecutive duplicates of list elements.
+"""
+restrictions = """
+Do not use any external libraries or built
+in functions that may directly have this
+functionality.
+"""
+optional_restrictions = """
+"""
+input = """
+["a", "a", "a", "a", "b", "c", "c", "a", "a", "d", "d", "e", "e", "e", "e"]
+"""
+expected_output = """
+[["a", "a", "a", "a"], ["b"], ["c", "c"], ["a", "a"], ["d", "d"],
+ ["e", "e", "e", "e"]]
+"""
+
+[[question]]
+name = "Run-length Encoding"
+question = """
+Returns a list of tuples `(x, y)` where
+`x` is the count of consecutive `y` elements.
+`["a", "a", "b", "c"]` would be `[(2, "a"), (1, "b"), (1, "c")]`
+"""
+restrictions = """
+Do not use any external libraries or built
+in functions that may directly have this
+functionality.
+"""
+optional_restrictions = """
+"""
+input = """
+["a", "a", "a", "a", "b", "c", "c", "a", "a", "d", "e", "e", "e", "e"]
+"""
+expected_output = """
+[(4, "a"), (1, "b"), (2, "c"), (2, "a"), (1, "d"), (4, "e")]
+"""
+
+[[question]]
+name = "Decode Run-length Encoding"
+question = """
+Returns a list of elements `y` where each `y` is present `x` times. The input is
+a list of tuples containing `(x, y)`.
+`[(2, "a"), (1, "b"), (1, "c")]` would be `["a", "a", "b", "c"]` 
+"""
+restrictions = """
+Do not use any external libraries or built
+in functions that may directly have this
+functionality.
+"""
+optional_restrictions = """
+"""
+input = """
+[(4, "a"), (1, "b"), (2, "c"), (2, "a"), (1, "d"), (4, "e")]
+"""
+expected_output = """
+["a", "a", "a", "a", "b", "c", "c", "a", "a", "d", "e", "e", "e", "e"]
+"""
+
+[[question]]
+name = "List Sort"
+question = """
+Sort the list from least to greatest
+"""
+restrictions = """
+Do not use any built in sorting libraries.
+"""
+optional_restrictions = """
+
+"""
+input = """
+[2,3,1]  
+"""
+expected_output = """
+[1,2,3]
+"""
+
+[[question]]
+name = "Reverse list"
+question = """
+Reverse the given list
+"""
+restrictions = """
+Do not use any built in sorting libraries.
+"""
+optional_restrictions = """
+
+"""
+input = """
+[1,2,3]  
+"""
+expected_output = """
+[3,2,1]
+"""

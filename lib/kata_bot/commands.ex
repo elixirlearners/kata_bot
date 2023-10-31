@@ -15,6 +15,7 @@ defmodule KataBot.Commands do
   alias KataBot.Kata
   use GenServer
 
+  @impl true
   def start_link(state \\ []) do
     GenServer.start_link(__MODULE__, state, name: __MODULE__)
   end
